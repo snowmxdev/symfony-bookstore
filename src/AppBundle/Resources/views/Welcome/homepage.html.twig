@@ -1,0 +1,66 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+
+    <div class="container">
+
+            <hr>
+
+            <div class="row ">
+                <div class="col-sm-8" >
+                  <div class="jumbotron gradientBackground">
+                    <h1 style="color: #fff">iBookstore</h1>
+                    <p style="color: #fff">iBookstore je vaša nova omiljena destinacija za kupovinu knjiga</p>
+            </div>
+              <div style="font: ultra-condensed italic small-caps bold 24px Georgia, sans-serif;">
+                <h3> Što čini iBookstore?</h3>
+                U želji da podignemo standarde u domaćem knjižarstvu te omogućimo ljubiteljima knjige da u što kraćem roku i po najpovoljnijim uvjetima dođu do najnovijih naslova <br>
+                iBookstore će zainteresiranima ponuditi knjige svih hrvatskih izdavača, kao i knjige nekih inozemnih izdavačkih kuća. <br> <br>
+
+
+              </div>
+                <a class="btn btn-primary btn-lg" href="{{path('AppBundle_Book_showBooks') }}">Ponuda &raquo;</a>
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <h2>Obavijesti</h2> <hr>
+                    {% if app.session.flashBag.has('success') %}
+                        <div class="alert alert-success">
+                            {% for msg in app.session.flashBag.get('success') %}
+                               {{ msg }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <hr>
+            <h3><b>Izdvojena ponuda</b></h3> <hr>
+            <div class="row">
+                <div class="col-sm-4">
+                  <a href="{{ path('AppBundle_Book_detailsBook', {'bookId': '7'}) }}">
+                    <img class="img-rounded" width="300" height="275" src="{{ path('AppBundle_Book_mainImage', {'bookId': '7'}) }}" alt="" /></a>
+                    <h2>Pjesma leda i vatre 3. kniga Prvi dio</h2>
+                    <p><b>Cijena: 60.00 kn</b></p>
+                    <p><b>Kratki opis: </b>Dok vojske samoproglašenih kraljeva pustoše već poharanom zemljom, sa Sjevera se sprema seoba naroda. Zima dolazi, ali čini se da nitko osim Jona nije svjestan opasnosti koja stiže na tragu horde Divljaka.</p>
+                </div>
+                <div class="col-sm-4">
+                  <a href="{{ path('AppBundle_Book_detailsBook', {'bookId': '15'}) }}">
+                    <img class="img-rounded" width="300" height="275" src="{{ path('AppBundle_Book_mainImage', {'bookId': '15'}) }}" alt="" /> </a>
+                    <h2>Vodič kroz galaksiju za autostopere</h2>
+                    <p><b>Cijena: 90.00 kn</b></p>
+                    <p><b>Kratki opis: </b>Radnja se odvija oko dogodovština Arthura Denta, običnog čovjeka koji preživi događaj u kojem izvanzemaljci "razruše" Zemlju da bi napravili prostor za izgradnju svemirske autoceste. Sam naslov je parafraza fiktivnog autostoperskog vodiča po galaktici.</p>
+                </div>
+                <div class="col-sm-4">
+                  <a href="{{ path('AppBundle_Book_detailsBook', {'bookId': '14'}) }}">
+                    <img class="img-rounded" width="300" height="275" src="{{ path('AppBundle_Book_mainImage', {'bookId': '14'}) }}" alt="" /></a>
+                    <h2>Metro 2033</h2>
+                    <p><b>Cijena: 140.00 kn</b></p>
+                    <p><b>Kratki opis: </b>Mladić Artem preživio je nuklearnu kataklizmu i s nekoliko tisuća sugrađana živi duboko ispod površine zemlje – u razgranatoj mreži stanica i pruga moskovskog Metroa. </p>
+                </div>
+            </div>
+            <hr><br>
+        </div>
+
+{% endblock content %}

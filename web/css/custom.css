@@ -1,0 +1,131 @@
+
+.prijavaOdjava {
+	position: relative;
+	display: inline-block;
+	padding: 7px 20px;
+	top: -2px;
+	float: right;
+	color: #fff;
+	background: rgb(50,150,255);
+}
+
+.prijavaOdjava:hover {
+	background: black;
+}
+
+.kutija1 {
+	padding:10px;background:#e26f16;
+}
+
+.kutija2 {
+	padding:10px; background:#e2bd16;
+}
+
+.kutija3 {
+	padding:10px;background:#a2e216;
+}
+
+.kutija4 {
+	padding:10px;background:#11a325;
+}
+
+.kutija1:hover {
+	background: #fff;
+}
+
+.kutija2:hover {
+	background: #fff;
+}
+
+.kutija3:hover {
+	background: #fff;
+}
+
+.kutija4:hover {
+	background: #fff;
+}
+
+.center_div{
+    margin: 0 auto;
+    width:80%;
+}
+
+
+.vertical-center {
+  min-height: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+}
+
+/*ovo je za prikaz svih knjiga -- http://bootsnipp.com/snippets/featured/list-grid-view */
+.glyphicon { margin-right:5px; }
+.thumbnail
+{
+    margin-bottom: 5%;
+    padding: 5%;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.item.list-group-item
+{
+	width:40%;
+  height:200px;
+  float:left;
+  background-color:white;
+  margin:25px 15px;
+  border-radius:5px;
+}
+
+
+
+/* za covere */
+.img-covers {
+	position: relative;
+	float: left;
+	width:  125px;
+	height: 125px;
+	background-position: 50% 50%;
+	background-repeat:   no-repeat;
+	background-size:     cover;
+	padding: 3%;
+}
+
+.img-covers-details {
+	position: relative;
+	float: left;
+	width:  350px;
+	height: 450px;
+	background-position: 50% 50%;
+	background-repeat:   no-repeat;
+	background-size:     cover;
+	padding: 1%;
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+
+.book-details-relative {
+    position: relative;
+    width: 800px;
+    height: 700px;
+    /*border: 3px solid #73AD21;*/
+}
+
+.book-details-info {
+    position: absolute;
+    top: 25px;
+  	left: 390px;
+    width: 400px;
+    height: 600px;
+	}
+
+.gradientBackground {
+	background: #606c88; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #606c88 , #3f4c6b); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #606c88 , #3f4c6b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

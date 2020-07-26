@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Stranica nije pronađena</h1>
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        {# ... #}
+    {% endif %}
+
+    <p>
+        Tražena stranica nije pronađena. Provjeriti ispravnost unesenog URL-a,
+        ili <a href="{{ path('AppBundle_Welcome_homepage')}}">povratak na naslovnu</a>.
+    </p>
+{% endblock %}

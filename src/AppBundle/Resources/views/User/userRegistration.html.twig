@@ -1,0 +1,38 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+
+<div class="jumbotron vertical-center">
+  <div class="container">
+    <div class="row">
+
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+          <div class="alert alert-info">
+            <p>Registracijiom postajete naš član i ostvarivate 5% popusta na ukupan iznos!</p>
+          </div>
+
+          <div class="alert alert-danger">
+            <p>Sva polja su obavezna!</p>
+            {{ form_errors(form.name, {'attr': {'class': 'alert alert-danger'}}) }}
+            {{ form_errors(form.surname, {'attr': {'class': 'alert alert-danger'}}) }}
+            {{ form_errors(form.email, {'attr': {'class': 'alert alert-danger'}}) }}
+            {{ form_errors(form.password, {'attr': {'class': 'alert alert-danger'}}) }}
+          </div>
+          {{ form_start(form) }}
+          <label for="">Ime:</label>
+          {{ form_widget(form.name) }}
+          <label for="">Prezime:</label>
+          {{ form_widget(form.surname) }}
+          <label for="">Email:</label>
+          {{ form_widget(form.email) }}
+          <label for="">Lozinka:</label>
+          {{ form_widget(form.password) }}
+          {{ form_row(form.save, {'label' : 'Potvrdi registraciju'}) }}
+          {{ form_end(form) }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock content %}

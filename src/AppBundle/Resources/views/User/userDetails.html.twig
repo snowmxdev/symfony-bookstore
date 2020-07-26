@@ -1,0 +1,27 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+
+<div class="jumbotron vertical-center">
+  <div class="container">
+    <div class="row">
+
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+          <div class="alert alert-info">
+            <p>Prikaz korisnika</p>
+          </div>
+              Ime i prezime: {{ user.name }} {{ user.surname }} <br>
+              Email: {{ user.email }} <br>
+              Uloga: {{ user.role }} <br>
+              Datume registracije: {{ user.created|date("d/m/Y") }} <br> <hr>
+              {% if is_granted('ROLE_ADMIN') %}
+                <a class="btn btn-danger" href="{{ path('AppBundle_Admin_deleteUser', {'userId': user.id}) }}">Brisanje korisnika</a>
+              {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock content %}

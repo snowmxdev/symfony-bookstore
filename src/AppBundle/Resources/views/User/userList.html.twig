@@ -1,0 +1,17 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+  <div class="jumbotron vertical-center">
+    <div class="container">
+      <h2>Registrirani korisnici:</h2> <br>
+        {% for user in users %}
+          <div class="list-group">
+            <a href="{{ path('AppBundle_User_userDetails', {'userId': user.id}) }}" class="list-group-item ">
+            <h4 class="list-group-item-heading alert alert-info ">
+            {{ user.id }} - {{ user.name }} {{ user.surname }}  {{ user.email }}    ----  podatci o korisniku</h4></a>
+          </div>
+        {% endfor %}
+     </div>
+   </div>
+
+{% endblock content %}

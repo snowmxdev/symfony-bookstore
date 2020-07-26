@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <div id="main">
+        {% block content %}
+        {% endblock %}
+    </div>
+{% endblock %}

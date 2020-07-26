@@ -1,0 +1,45 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <a href="{{ path('logout')}}" class="btn btn-danger btn-block">{{ app.user.name }} {{ app.user.surname }} - Logout</a>
+{% else %}
+
+  <div class="jumbotron vertical-center">
+  <div class="container">
+    <div class="row">
+
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+              <form id="signin" action="{{ path('AppBundle_Security_login') }}" method="post" >
+            <div class="form-group input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}" placeholder="Email" />
+            </div>
+
+            <div class="form-group input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+              <input type="password" id="password" name="_password" class="form-control" placeholder="Lozinka"/>
+              <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
+            </div>
+
+            <div class="checkbox">
+              <input type="checkbox" id="remember_me" name="_remember_me" checked />
+                <label for="remember_me">Remember me!</label>
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block">Prijavi se</button>
+            </div>
+            <div class="form-group text-center">
+              <p>Da li ste registrirani ? &nbsp;|&nbsp;<a href="{{ path('AppBundle_User_userRegistration') }}">Registracija</a></p>
+            </div>
+          </form>
+
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% endblock content %}

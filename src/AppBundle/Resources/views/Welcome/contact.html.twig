@@ -1,0 +1,33 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+
+{% block body %}
+    <div id="main">
+        {% block content %}
+        <div class="container">
+          <div class="row text-center">
+        		<div class="col-m-3 kutija1">
+                <h1><span class="glyphicon glyphicon-earphone"></span></h1>
+                <h3>Telefon</h3>
+                <p>021 567 567</p><br>
+            </div>
+            <div class="col-m-3 kutija2">
+                <h1><span class="glyphicon glyphicon-home"></span></h1>
+                <h3>Adresa</h3>
+                <p>Poljička cesta 27, 21000, Split</p><br>
+            </div>
+            <div class="col-m-3 kutija3">
+                <h1><span class="glyphicon glyphicon-send"></span></h1>
+                <h3>E-mail</h3>
+                <p>info@knjizara.com</p><br>
+            </div>
+            <div class="col-m-3 kutija4">
+            	<h1><span class="glyphicon glyphicon-leaf"></span></h1>
+                <h3>Web</h3>
+                <p>www.knjizara.com</p><br>
+            </div>
+        	</div>
+        </div>
+        {% endblock %}
+    </div>
+{% endblock %}

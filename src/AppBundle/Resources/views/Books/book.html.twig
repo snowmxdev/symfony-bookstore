@@ -1,0 +1,44 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+<div class="book-details-relative">
+  <img class="img-covers-details"  src="{{ path('AppBundle_Book_mainImage', {'bookId': book.id}) }}"
+                      alt="Apartment image" />
+
+
+    <div class="book-details-info">
+      <div class="figure">
+          <h4 class="group inner"><strong>{{ book.name }}</strong></h4>
+          <p class="group inner"><b>Autor: </b> {{ author.name }} </p>
+          <p class="group inner"><b>Kategorija: </b> {{ category.categoryName }} </p>
+          <p class="group inner"><b>Izdavač: </b> {{ publisher.publisherName }} </p>
+          <p class="group inner"><b>Kratki opis: </b>{{ book.description }} </p>
+          <p class="group inner"><b>Broj stranica: </b>{{ book.pages }} </p>
+          <p class="group inner"><b>Isbn: </b> {{ book.isbn }} </p>
+          <p class="group inner"><b>Rasploživost: </b> {{ book.availability }} </p>
+          <p class="group inner"><b>Cijena: </b> {{ book.price }} kn</p>
+
+          {% if (voting=="noRating") and (vote=="canVote")  %}
+            <p class="group inner"><b>Prosječna ocjena korisnika: {{ rating|round(2) }} / 5</b> </p>
+            {{ form(form) }}
+          {% elseif (voting=="noRating") %}
+            {{ form(form) }}
+          {% elseif (voting=="hasRating") %}
+            <p class="group inner"><b>Prosječna ocjena korisnika: {{ rating|round(2) }} / 5</b> </p>
+          {% else %}
+            <p class="group inner">Nema ocjena za ovu knjigu </p>
+          {% endif %}
+
+          <hr>
+          <a href="{{path('AppBundle_Book_showBooks') }}" class="btn btn-info"><i class="fa fa-angle-left"></i>Povratak na ponudu</a>
+          <a class="btn btn-success" href="{{ path('AppBundle_Book_addingToCartAction', {'bookId': book.id}) }}">Dodaj u košaricu</a>
+          {% if is_granted('ROLE_ADMIN') %}
+            <a class="btn btn-danger" href="{{ path('AppBundle_Admin_deleteBook', {'bookId': book.id}) }}">Izbriši knjigu</a>
+          {% endif %}
+      </div>
+    </div>
+  </div>
+
+
+
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+
+  <div class="container">
+      <div class="well well-sm">
+          <b>Pretraga:</b>
+          {{ form_start(form) }}
+          <label>Cijena --- od:</label>
+          {{ form_widget(form.priceFrom) }}
+          <label>Cijena --- do:</label>
+          {{ form_widget(form.priceTo) }}
+          <label>Autor:</label>
+          {{ form_widget(form.author) }}
+          {{ form_row(form.save) }}
+          {{ form_end(form) }}
+      </div>
+
+      {% for book in books %}
+        <div id="products" class="grid-group-item">
+            <div class="item col-xs-4 col-lg-4">
+                <div class="thumbnail">
+                  <a href="{{ path('AppBundle_Book_detailsBook', {'bookId': book.id}) }}">
+                        <img class="img-covers" src="{{ path('AppBundle_Book_mainImage', {'bookId': book.id}) }}"
+                         alt="" />
+                   </a>
+                    <div class="figure">
+                        <h4 class="group inner"><strong>{{ book.name }}</strong></h4>
+                        <p class="group inner"> {{ book.availability }} </p>
+                        <p class="group inner"> {{ book.price }} kn</p>
+                        <a class="btn btn-success" href="{{ path('AppBundle_Book_addingToCartAction', {'bookId': book.id}) }}">Dodaj u košaricu</a>
+                    </div>
+                </div>
+            </div>
+          </div>
+      {% else %}
+          No books found.
+      {% endfor %}
+  </div>
+{% endblock content %}
